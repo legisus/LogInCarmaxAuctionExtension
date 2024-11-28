@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Log In Carmax Helper",
+  "version": "1.0",
+  "description": "Automatically fills the email, password and click submit button",
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "dist/assets/background.js"
+  },
+  "action": {
+    "default_title": "Fill Email"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["dist/assets/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["dist/assets/main.js", "dist/assets/util.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
